@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculeitor</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column; 
+            background-image: linear-gradient(45deg,rgb(0, 0, 0),rgb(20, 130, 220));
+            height: 100vh;
+            margin: 0px;
+            border: 3px solid lightsteelblue;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        div#borda{
+            background-color: rgb(0, 0, 0,0.6);
+            width: 400px;
+            height: 500px;
+            border-radius: 10px;
+        }
+        p#tela{
+            margin: 20px;
+            background-color: rgb(255, 255, 255);
+            height: 90px;
+            width: 355px;
+            border-radius: 10px;
+            text-align: right;
+            font: normal 70px arial;
+            white-space: nowrap; 
+            overflow: hidden;
+            text-overflow: clip; 
+            border: 1px solid #1737a1;
+        }
+        button{
+            width: 55px;
+            height: 60px;
+            margin: 3px;
+            font: normal 18px arial;
+            box-shadow: 1 1 ;
+            -webkit-transition: all 200ms ease-in-out;
+            transition: all 150ms ease-in-out;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            background-color:rgb(117, 123, 173);          
+        }
+        div#botãoG{
+            padding: 25px;
+            margin: 45px;
+            margin-top: 20px; 
+        }
+        .apagar{
+            width: 250px;
+        }
+        button:hover{
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            box-shadow: 0 0 10px 0 #100dbb inset, 0 0 10px 4px #062579;
+        }
+    </style>
+</head>
+<body>
+    <h1>CALCULADORA 2.0</h1>
+    <div id="borda">
+        <p id="tela"></p>
+        <div id="botãoG">
+            <button class="botao"onclick="insert('1')">1</button>
+            <button class="botao"onclick="insert('2')">2</button>
+            <button class="botao"onclick="insert('3')">3</button>
+            <button class="soma" onclick="insert('+')">+</button><br/>
+
+            <button class="botao"onclick="insert('4')">4</button>
+            <button class="botao"onclick="insert('5')">5</button>
+            <button class="botao"onclick="insert('6')">6</button>
+            <button class="subtrair"onclick="insert('-')">-</button><br/>
+
+            <button class="botao"onclick="insert('7')">7</button>
+            <button class="botao"onclick="insert('8')">8</button>
+            <button class="botao"onclick="insert('9')">9</button>
+            <button class="multiplicar" onclick="insert('*')">x</button><br/>
+
+            <button class="botao"onclick="insert('.')">.</button>
+            <button class="botao"onclick="insert('0')">0</button>
+            <button class="botao"onclick="calcular()">=</button>
+            <button class="dividir" onclick="insert('/')">/</button><br/>
+            <button class="apagar" onclick="apagar()">C</button>
+    </div>
+            
+    </div>
+    <script>
+        function insert(num){
+            var numero = document.getElementById('tela').innerHTML;
+            document.getElementById('tela').innerHTML = numero + num;       
+        }
+        function apagar(){
+            document.getElementById('tela').innerHTML = "";
+        }
+        function calcular(){
+            var resultado = document.getElementById('tela').innerHTML;
+            if(resultado != ""){
+                document.getElementById('tela').innerHTML = eval(resultado);
+            }
+
+        }
+    </script>
+</body>
+</html>
